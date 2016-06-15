@@ -1,3 +1,7 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
 {% if latest_question_list %}
    <ul>
       {% for question in latest_question_list %}
@@ -6,6 +10,20 @@
 			 {{ question.question_text }}
 		 </a>
 	 </li>
+
+
+      {% endfor %}
+   </ul>
+   <hr/>
+   <ul>
+      {% for question in latest_question_list %}
+         <li>
+	 <a href="{% url 'detail' question.id  %}">
+			 {{ question.question_text }}
+		 </a>
+	 </li>
+
+
       {% endfor %}
    </ul>
 {% else %}
